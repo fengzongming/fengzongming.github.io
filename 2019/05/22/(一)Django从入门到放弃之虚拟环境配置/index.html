@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java,">
+  <meta name="keywords" content="Python,Django,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="一. 前言​    近日研究了一下String类的一些方法, 通过查看源码, 对一些常用的方法也有了更透彻的认识, 也让我更加理解了设计者的算法思想. ​    我也推荐大家多读读源码, 相信大家也会有意想不到的收获. 二. 实战​    今天我分析的是String类的compareTo(String otherString)方法. 　　以下是我个人的分析观点, 如有哪里分析不到位的地方, 欢迎大">
-<meta name="keywords" content="Java">
+<meta name="description" content="一. 为什么需要虚拟环境​     ​    我也推荐大家多读读源码, 相信大家也会有意想不到的收获. 二. 实战​    今天我分析的是String类的compareTo(String otherString)方法. 　　以下是我个人的分析观点, 如有哪里分析不到位的地方, 欢迎大家指出, 相互学习, 共同进步 ! 　　首先, 尊重原作者, 先放上源码. 12345678910111213141">
+<meta name="keywords" content="Python,Django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java源码解析之compareTo()方法">
-<meta property="og:url" content="http://www.fzm.name/2019/05/22/Java源码解析之compareTo()方法/index.html">
+<meta property="og:title" content="(一). Django从入门到放弃之虚拟环境配置">
+<meta property="og:url" content="http://www.fzm.name/2019/05/22/(一)Django从入门到放弃之虚拟环境配置/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一. 前言​    近日研究了一下String类的一些方法, 通过查看源码, 对一些常用的方法也有了更透彻的认识, 也让我更加理解了设计者的算法思想. ​    我也推荐大家多读读源码, 相信大家也会有意想不到的收获. 二. 实战​    今天我分析的是String类的compareTo(String otherString)方法. 　　以下是我个人的分析观点, 如有哪里分析不到位的地方, 欢迎大">
+<meta property="og:description" content="一. 为什么需要虚拟环境​     ​    我也推荐大家多读读源码, 相信大家也会有意想不到的收获. 二. 实战​    今天我分析的是String类的compareTo(String otherString)方法. 　　以下是我个人的分析观点, 如有哪里分析不到位的地方, 欢迎大家指出, 相互学习, 共同进步 ! 　　首先, 尊重原作者, 先放上源码. 12345678910111213141">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-31T06:24:17.684Z">
+<meta property="og:updated_time" content="2019-06-21T10:29:40.648Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java源码解析之compareTo()方法">
-<meta name="twitter:description" content="一. 前言​    近日研究了一下String类的一些方法, 通过查看源码, 对一些常用的方法也有了更透彻的认识, 也让我更加理解了设计者的算法思想. ​    我也推荐大家多读读源码, 相信大家也会有意想不到的收获. 二. 实战​    今天我分析的是String类的compareTo(String otherString)方法. 　　以下是我个人的分析观点, 如有哪里分析不到位的地方, 欢迎大">
+<meta name="twitter:title" content="(一). Django从入门到放弃之虚拟环境配置">
+<meta name="twitter:description" content="一. 为什么需要虚拟环境​     ​    我也推荐大家多读读源码, 相信大家也会有意想不到的收获. 二. 实战​    今天我分析的是String类的compareTo(String otherString)方法. 　　以下是我个人的分析观点, 如有哪里分析不到位的地方, 欢迎大家指出, 相互学习, 共同进步 ! 　　首先, 尊重原作者, 先放上源码. 12345678910111213141">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.fzm.name/2019/05/22/Java源码解析之compareTo()方法/">
+  <link rel="canonical" href="http://www.fzm.name/2019/05/22/(一)Django从入门到放弃之虚拟环境配置/">
 
 
 
 
 
-  <title>Java源码解析之compareTo()方法 | Hexo</title>
+  <title>(一). Django从入门到放弃之虚拟环境配置 | Hexo</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.fzm.name/2019/05/22/Java源码解析之compareTo()方法/">
+    <link itemprop="mainEntityOfPage" href="http://www.fzm.name/2019/05/22/(一)Django从入门到放弃之虚拟环境配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dremeue">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java源码解析之compareTo()方法</h1>
+          <h1 class="post-title" itemprop="name headline">(一). Django从入门到放弃之虚拟环境配置</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
                   </a>
                 </span>
 
@@ -333,8 +344,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/05/22/Java源码解析之compareTo()方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/22/Java源码解析之compareTo()方法/" itemprop="commentCount"></span>
+                <a href="/2019/05/22/(一)Django从入门到放弃之虚拟环境配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/22/(一)Django从入门到放弃之虚拟环境配置/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,7 +378,7 @@
       
 
       
-        <h3 id="一-前言"><a href="#一-前言" class="headerlink" title="一. 前言"></a>一. 前言</h3><p>​    近日研究了一下String类的一些方法, 通过查看源码, 对一些常用的方法也有了更透彻的认识, 也让我更加理解了设计者的算法思想.</p>
+        <h3 id="一-为什么需要虚拟环境"><a href="#一-为什么需要虚拟环境" class="headerlink" title="一. 为什么需要虚拟环境"></a>一. 为什么需要虚拟环境</h3><p>​    </p>
 <p>​    我也推荐大家多读读源码, 相信大家也会有意想不到的收获.</p>
 <h3 id="二-实战"><a href="#二-实战" class="headerlink" title="二. 实战"></a>二. 实战</h3><p>​    今天我分析的是String类的compareTo(String otherString)方法.</p>
 <p>　　以下是我个人的分析观点, 如有哪里分析不到位的地方, 欢迎大家指出, 相互学习, 共同进步 !</p>
@@ -397,7 +408,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/Django/" rel="tag"># Django</a>
           
         </div>
       
@@ -410,15 +423,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/22/Java源码解析之compareTo()方法/" rel="next" title="Java源码解析之compareTo()方法">
+                <i class="fa fa-chevron-left"></i> Java源码解析之compareTo()方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/22/(一)Django从入门到放弃之虚拟环境配置/" rel="prev" title="(一). Django从入门到放弃之虚拟环境配置">
-                (一). Django从入门到放弃之虚拟环境配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -555,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-前言"><span class="nav-number">1.</span> <span class="nav-text">一. 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-实战"><span class="nav-number">2.</span> <span class="nav-text">二. 实战</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-为什么需要虚拟环境"><span class="nav-number">1.</span> <span class="nav-text">一. 为什么需要虚拟环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-实战"><span class="nav-number">2.</span> <span class="nav-text">二. 实战</span></a></li></ol></div>
             
 
           </div>
